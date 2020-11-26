@@ -1,6 +1,8 @@
 #[macro_use]
 extern crate aoc_runner_derive;
 
+mod prelude;
+
 // mod day01;
 // mod day02;
 // mod day03;
