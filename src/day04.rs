@@ -213,31 +213,31 @@ fn all_parts_valied(fields: &[(String, String)]) -> bool {
             "byr" => {
                 byr = value
                     .parse::<u16>()
-                    .map(|year| 1920 <= year && year <= 2002)
+                    .map(|year| (1920..=2002).contains(&year))
                     .unwrap_or(false)
             }
             "iyr" => {
                 iyr = value
                     .parse::<u16>()
-                    .map(|year| 2010 <= year && year <= 2020)
+                    .map(|year| (2010..=2020).contains(&year))
                     .unwrap_or(false)
             }
             "eyr" => {
                 eyr = value
                     .parse::<u16>()
-                    .map(|year| 2020 <= year && year <= 2030)
+                    .map(|year| (2020..=2030).contains(&year))
                     .unwrap_or(false)
             }
             "hgt" => {
                 hgt = if value.ends_with("cm") {
                     value[..value.len() - "cm".len()]
                         .parse::<u8>()
-                        .map(|height| 150 <= height && height <= 193)
+                        .map(|height| (150..=193).contains(&height))
                         .unwrap_or(false)
                 } else if value.ends_with("in") {
                     value[..value.len() - "in".len()]
                         .parse::<u8>()
-                        .map(|height| 59 <= height && height <= 76)
+                        .map(|height| (59..=76).contains(&height))
                         .unwrap_or(false)
                 } else {
                     false

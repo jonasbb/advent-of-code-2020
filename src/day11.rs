@@ -23,7 +23,7 @@ fn input_generator(input: &str) -> Vec<Vec<State>> {
 }
 
 #[allow(dead_code)]
-fn print_layout(layout: &Vec<Vec<State>>) {
+fn print_layout(layout: &[Vec<State>]) {
     for line in layout {
         for place in line {
             eprint!(
